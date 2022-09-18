@@ -14,58 +14,90 @@ for i in range(int(number)):
     InputChords.append(inpt)
 print('Your Chords Are: '+str(InputChords))
 
+Choice=input('Tarnspose by Chords or fret number: C for Chords F for frets: ')
+if Choice=='C':
+    Choose=input('Choose a chord to Transpose: ')
+    Choose2=input('Choose a chord to Tranpose to: ')
 
-Choose=input('Choose a chord to Transpose: ')
-Choose2=input('Choose a chord to tranpose to: ')
+    #Finding the index of teh chord to transpose
+    if 'm' in str(Choose):
 
-#Finding the index of teh chord to transpose
-if 'm' in str(Choose):
-
-    ChordNumber1=ChordListM.index(str(Choose))
-elif '7' in str(Choose):
-    ChordNumber1=ChordList7.index(str(Choose))
-else:
-    ChordNumber1=ChordList.index(str(Choose))
-
-
-if 'm' in str(Choose2):
-
-
-    ChordNumber2=ChordListM.index(str(Choose2))
-elif '7' in str(Choose2):
-    ChordNumber2=ChordList7.index(str(Choose2))
-else:
-    ChordNumber2=ChordList.index(str(Choose2))
- 
-GapNumber=ChordNumber2-ChordNumber1
-print(GapNumber)
-for i in range(int(number)):
-    #The Chord we are trying to transpose
-    OurChord=(InputChords[i])
-    print(str(i)+'Our Chord')
-    #The Index of the Chord that we are trying to transpose
-    if 'm' in str(InputChords[i]): 
-        
-        OurIndex=ChordListM.index(OurChord)
-           # print('our index'+str(OurIndex))
-        NewIndex=OurIndex+GapNumber
-           # print('new index'+str(NewIndex))
-        NewChord=str(ChordListM[NewIndex])
-           # print('new chord'+str(NewChord))
-    elif '7' in str(InputChords[i]):
-        OurIndex=ChordList7.index(OurChord)
-           # print('our index'+str(OurIndex))
-        NewIndex=OurIndex+GapNumber
-           # print('new index'+str(NewIndex))
-        NewChord=str(ChordList7[NewIndex])
-           # print('new chord'+str(NewChord))
+        ChordNumber1=ChordListM.index(str(Choose))
+    elif '7' in str(Choose):
+        ChordNumber1=ChordList7.index(str(Choose))
     else:
-        OurIndex=ChordList.index(OurChord)
-           # print('our index'+str(OurIndex))
-        NewIndex=OurIndex+GapNumber
-           # print('new index'+str(NewIndex))
-        NewChord=str(ChordList[NewIndex])
-           # print('new chord'+str(NewChord))
-    OutputChords.append(NewChord)
+        ChordNumber1=ChordList.index(str(Choose))
+
+
+    if 'm' in str(Choose2):
+
+
+        ChordNumber2=ChordListM.index(str(Choose2))
+    elif '7' in str(Choose2):
+        ChordNumber2=ChordList7.index(str(Choose2))
+    else:
+        ChordNumber2=ChordList.index(str(Choose2))
+    
+    GapNumber=ChordNumber2-ChordNumber1
+    print(GapNumber)
+    for i in range(int(number)):
+        #The Chord we are trying to transpose
+        OurChord=(InputChords[i])
+        print(str(i)+'Our Chord')
+        #The Index of the Chord that we are trying to transpose
+        if 'm' in str(InputChords[i]): 
+            
+            OurIndex=ChordListM.index(OurChord)
+            # print('our index'+str(OurIndex))
+            NewIndex=OurIndex+GapNumber
+            # print('new index'+str(NewIndex))
+            NewChord=str(ChordListM[NewIndex])
+            # print('new chord'+str(NewChord))
+        elif '7' in str(InputChords[i]):
+            OurIndex=ChordList7.index(OurChord)
+            # print('our index'+str(OurIndex))
+            NewIndex=OurIndex+GapNumber
+            # print('new index'+str(NewIndex))
+            NewChord=str(ChordList7[NewIndex])
+            # print('new chord'+str(NewChord))
+        else:
+            OurIndex=ChordList.index(OurChord)
+            # print('our index'+str(OurIndex))
+            NewIndex=OurIndex+GapNumber
+            # print('new index'+str(NewIndex))
+            NewChord=str(ChordList[NewIndex])
+            # print('new chord'+str(NewChord))
+        OutputChords.append(NewChord)
+elif Choice=='F':
+    GapNumber=int(input('Choose Number of frets you want to transpose: '))
+
+    print(GapNumber)
+    for i in range(int(number)):
+        OurChord=(InputChords[i])
+        print(str(i)+'Our Chord')
+        #The Index of the Chord that we are trying to transpose
+        if 'm' in str(InputChords[i]): 
+            
+            OurIndex=ChordListM.index(OurChord)
+            # print('our index'+str(OurIndex))
+            NewIndex=OurIndex+GapNumber
+            # print('new index'+str(NewIndex))
+            NewChord=str(ChordListM[NewIndex])
+            # print('new chord'+str(NewChord))
+        elif '7' in str(InputChords[i]):
+            OurIndex=ChordList7.index(OurChord)
+            # print('our index'+str(OurIndex))
+            NewIndex=OurIndex+GapNumber
+            # print('new index'+str(NewIndex))
+            NewChord=str(ChordList7[NewIndex])
+            # print('new chord'+str(NewChord))
+        else:
+            OurIndex=ChordList.index(OurChord)
+            # print('our index'+str(OurIndex))
+            NewIndex=OurIndex+GapNumber
+            # print('new index'+str(NewIndex))
+            NewChord=str(ChordList[NewIndex])
+            # print('new chord'+str(NewChord))
+        OutputChords.append(NewChord)
 print('Transposed Chords: '+str(OutputChords))
 #ADD M TO ALL THE LIST
